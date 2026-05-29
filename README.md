@@ -219,6 +219,33 @@ Edit the quotes that float on screen:
 
 ---
 
+## 🌐 GitHub Pages Deployment
+This repository is ready for GitHub Pages. The site is already committed on the `main` branch.
+
+### To publish it:
+1. Create a GitHub repo (for example: `romantic-website`).
+2. Add the repository as a remote:
+```bash
+git remote add origin https://github.com/<your-username>/<repo-name>.git
+```
+3. Push the site to GitHub:
+```bash
+git push -u origin main
+```
+4. In GitHub, go to Settings → Pages and choose:
+   - Source: `main` branch
+   - Folder: `/ (root)`
+
+### If you want the repository created for you:
+- Send me your GitHub repo URL or create the empty repo first.
+- I can then push this `main` branch directly to GitHub.
+
+### When published
+Your public site URL will be:
+```text
+https://<your-username>.github.io/<repo-name>/
+```
+
 ## 🎨 CUSTOMIZATION 4: Change Colors
 
 All colors are defined as CSS variables in `styles.css` (Lines 10-20):
@@ -405,3 +432,4 @@ This website is built with pure HTML, CSS, and JavaScript. It's:
 ---
 
 *Made with love, regret, and too much overthinking ❤️*
+# akshaythe-coder
