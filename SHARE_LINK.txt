@@ -1,0 +1,12 @@
+Your phone-accessible local network link for the site:
+
+http://192.168.1.4:8000/
+
+Your public hosted demo link (temporary tunnel):
+
+https://silver-mice-stare.loca.lt
+
+Notes:
+- The public link is served through a tunnel and requires the local server to stay running.
+- Keep the Python server running while she visits either link.
+- If the computer or server stops, the link will stop working.

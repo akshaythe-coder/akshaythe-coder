@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A romantic mobile-friendly page with JVKE - her playing in the background.">
+    <meta property="og:title" content="Made with Love for You ❤️">
+    <meta property="og:description" content="A romantic surprise page with a love letter, photo gallery, and countdown.">
+    <title>Made with Love for You ❤️</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- GSAP for smooth animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <!-- Confetti library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <!-- Animated background -->
+    <div class="background-animation">
+        <div class="stars"></div>
+        <div class="floating-particles"></div>
+    </div>
+
+    <!-- Heart cursor trail canvas -->
+    <canvas id="heartTrail"></canvas>
+
+    <!-- Music player -->
+    <div class="music-player">
+        <button class="music-toggle" id="musicToggle" aria-label="Toggle music">
+            <span class="music-icon">🎵</span>
+        </button>
+        <div class="music-info">
+            <p>🎧 JVKE — her</p>
+        </div>
+        <!-- upload removed: playing background song only -->
+    </div>
+
+    <!-- Main container -->
+    <div class="main-container">
+        <!-- ============ HERO SECTION ============ -->
+        <section class="hero" id="heroSection">
+            <div class="hero-content">
+                <div class="hero-title-wrapper">
+                    <h1 class="hero-title">
+                        <span class="title-word">A little silly surprise...</span>
+                        <span class="title-word">for the one who still makes me blush</span>
+                        <span class="title-emoji">💌</span>
+                    </h1>
+                </div>
+                <button class="cta-button open-heart-btn" id="openHeartBtn">
+                    <span class="button-text">Peek Inside</span>
+                    <span class="button-glow"></span>
+                </button>
+            </div>
+            <div class="hero-background" style="background-image: url('images/photo4.jpeg');">
+                <div class="hero-overlay"></div>
+            </div>
+        </section>
+
+        <!-- ============ LOVE NOTE SECTION ============ -->
+        <section class="love-note-section" id="noteSection">
+            <div class="floating-petals"></div>
+            <div class="love-note-container">
+                <div class="love-note-card" id="loveNoteCard">
+                    <div class="note-envelope">
+                        <div class="envelope-front">
+                            <div class="heart-seal">💖</div>
+                        </div>
+                        <div class="envelope-letter">
+                            <h2 class="note-title">A Love Letter</h2>
+                            <p class="note-text" id="noteText">
+                                Helooo BBG,
+                                <br><br>
+                                I know I can still be a little extra sometimes, but that's only because you mean so much to me. You deserve all the love, attention, and sparkle I can give.
+                                <br><br>
+                                I'm sorry for the times I made things harder than they needed to be. I'm learning, growing, and trying to be better not just for us, but for you, because you're worth it.
+                                <br><br>
+                                You are my favorite smile, my comfort on difficult days, and the person who makes ordinary moments feel special. I love your laugh, your heart, and even your adorable little mischief.
+                                <br><br>
+                                I promise to listen better, love you more thoughtfully, and keep showing up for you with warm hugs, silly surprises, and lots of reasons to smile.
+                                <br><br>
+                                Thank you for being you. Life is brighter, happier, and so much sweeter with you in it.
+                                <br><br>
+                                Forever and then some,<br>
+                                <span class="signature">Akshay</span> 💕
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-hearts-container"></div>
+            </div>
+        </section>
+
+        <!-- ============ MEMORY GALLERY ============ -->
+        <section class="gallery-section" id="gallerySection">
+            <h2 class="section-title">Our Story in Moments</h2>
+            <div class="gallery-container">
+                <!-- Your uploaded photos are now copied into the website folder -->
+                <div class="gallery-item">
+                    <div class="polaroid">
+                        <img src="images/photo2.jpeg" alt="Pretty You" loading="lazy">
+                        <p class="polaroid-caption">You + Me = Home 🏠</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="polaroid">
+                        <img src="images/photo3.jpeg" alt="My favorite person" loading="lazy">
+                        <p class="polaroid-caption">Still my favorite person ✨</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="polaroid">
+                        <img src="images/photo1.jpeg" alt="Forever with you" loading="lazy">
+                        <p class="polaroid-caption">Forever with you 🌹</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="polaroid">
+                        <img src="images/photo4.jpeg" alt="Our moment" loading="lazy">
+                        <p class="polaroid-caption">Our moment 💖</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lightbox Modal -->
+            <div class="lightbox" id="lightbox">
+                <span class="lightbox-close">&times;</span>
+                <img class="lightbox-image" id="lightboxImage" src="" alt="">
+                <p class="lightbox-caption" id="lightboxCaption"></p>
+            </div>
+        </section>
+
+        <!-- ============ DATE PROPOSAL SECTION ============ -->
+        <section class="proposal-section" id="proposalSection">
+            <div class="proposal-container">
+                <h2 class="proposal-question">Will you go on a date with me again?</h2>
+                <p class="proposal-subtitle">Because I miss you... 💖</p>
+                <div class="proposal-buttons">
+                    <button class="proposal-btn yes-btn" id="yesBtn">
+                        <span class="btn-emoji">💕</span>
+                        <span class="btn-text">YES</span>
+                    </button>
+                    <button class="proposal-btn no-btn" id="noBtn">
+                        <span class="btn-emoji">😢</span>
+                        <span class="btn-text">NO</span>
+                    </button>
+                </div>
+                <div class="teasing-messages" id="teasingMessages"></div>
+            </div>
+        </section>
+
+        <!-- ============ CELEBRATION SECTION ============ -->
+        <section class="celebration-section" id="celebrationSection">
+            <div class="celebration-content">
+                <h2 class="celebration-title">YAYYY ❤️</h2>
+                <p class="celebration-subtitle">Best Decision Ever!</p>
+                
+                <div class="celebration-photo">
+                    <img src="images/photo4.jpeg" alt="Our moment" loading="lazy">
+                    <div class="photo-glow"></div>
+                    <p class="moment-label">Our moment</p>
+                </div>
+
+                <p class="date-confirmation">Date confirmed 💌</p>
+                
+                <div class="countdown-timer">
+                    <h3>Time until our special moment:</h3>
+                    <div class="countdown" id="countdown">
+                        <div class="time-unit">
+                            <span class="time-value" id="days">0</span>
+                            <span class="time-label">Days</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-value" id="hours">0</span>
+                            <span class="time-label">Hours</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-value" id="minutes">0</span>
+                            <span class="time-label">Minutes</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-value" id="seconds">0</span>
+                            <span class="time-label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="celebration-hearts"></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <p>Made with love, regret, and too much overthinking ❤️</p>
+    </footer>
+
+    <!-- Floating quotes -->
+    <div class="floating-quotes">
+        <div class="quote">You are my greatest adventure</div>
+        <div class="quote">My heart chose you</div>
+        <div class="quote">Forever isn't long enough</div>
+        <div class="quote">You're my favorite feeling</div>
+        <div class="quote">I love you more 💕</div>
+    </div>
+
+    <!-- Audio element for background music -->
+    <!-- Upload your own JVKE "her" file to audio/her-by-jvke.mp3 to play the exact song. -->
+    <audio id="backgroundMusic" class="audio-player" preload="auto" playsinline loop aria-hidden="true">
+        <source src="audio/her-by-jvke.mp3" type="audio/mpeg">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
