@@ -460,8 +460,8 @@ function initializeFloatingQuotes() {
 
 // ===== COUNTDOWN TIMER =====
 function startCountdown() {
-    // Set countdown to June 7, 2026 at 8:00 PM
-    const dateNight = new Date(2026, 5, 7, 20, 0, 0);
+    // Set countdown to June 8, 2026 at 8:00 PM
+    const dateNight = new Date(2026, 5, 8, 20, 0, 0);
 
     function updateCountdown() {
         const now = new Date().getTime();
